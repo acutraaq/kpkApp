@@ -82,235 +82,237 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget> {
           decoration: BoxDecoration(
             color: Color(0x00EEEEEE),
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(40, 150, 40, 0),
-                child: TextFormField(
-                  controller: emailFieldController,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    labelStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Open Sans',
-                      color: Color(0x80FFFFFF),
-                      fontWeight: FontWeight.normal,
-                    ),
-                    hintText: 'Please enter your email...',
-                    hintStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Open Sans',
-                      color: Color(0x80FFFFFF),
-                      fontWeight: FontWeight.normal,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(40, 150, 40, 0),
+                  child: TextFormField(
+                    controller: emailFieldController,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Open Sans',
+                        color: Color(0x80FFFFFF),
+                        fontWeight: FontWeight.normal,
                       ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1,
+                      hintText: 'Please enter your email...',
+                      hintStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Open Sans',
+                        color: Color(0x80FFFFFF),
+                        fontWeight: FontWeight.normal,
                       ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    filled: true,
-                    fillColor: Color(0x41343333),
-                  ),
-                  style: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Open Sans',
-                    color: Color(0x80FFFFFF),
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(40, 15, 40, 0),
-                child: TextFormField(
-                  controller: passFieldController,
-                  obscureText: !passFieldVisibility,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    labelStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Open Sans',
-                      color: Color(0x80FFFFFF),
-                      fontWeight: FontWeight.normal,
-                    ),
-                    hintText: 'Please enter your password...',
-                    hintStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Open Sans',
-                      color: Color(0x80FFFFFF),
-                      fontWeight: FontWeight.normal,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    filled: true,
-                    fillColor: Color(0x41343333),
-                    suffixIcon: InkWell(
-                      onTap: () => setState(
-                        () => passFieldVisibility = !passFieldVisibility,
-                      ),
-                      child: Icon(
-                        passFieldVisibility
-                            ? Icons.visibility_outlined
-                            : Icons.visibility_off_outlined,
-                        color: Color(0xFF757575),
-                        size: 22,
-                      ),
-                    ),
-                  ),
-                  style: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Open Sans',
-                    color: Color(0x80FFFFFF),
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(40, 15, 40, 0),
-                child: TextFormField(
-                  controller: confirmPassFieldController,
-                  obscureText: !confirmPassFieldVisibility,
-                  decoration: InputDecoration(
-                    labelText: 'Confirm Password',
-                    labelStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Open Sans',
-                      color: Color(0x80FFFFFF),
-                      fontWeight: FontWeight.normal,
-                    ),
-                    hintText: 'Please confirm your password...',
-                    hintStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Open Sans',
-                      color: Color(0x80FFFFFF),
-                      fontWeight: FontWeight.normal,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    filled: true,
-                    fillColor: Color(0x41343333),
-                    suffixIcon: InkWell(
-                      onTap: () => setState(
-                        () => confirmPassFieldVisibility =
-                            !confirmPassFieldVisibility,
-                      ),
-                      child: Icon(
-                        confirmPassFieldVisibility
-                            ? Icons.visibility_outlined
-                            : Icons.visibility_off_outlined,
-                        color: Color(0xFF757575),
-                        size: 22,
-                      ),
-                    ),
-                  ),
-                  style: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Open Sans',
-                    color: Color(0x80FFFFFF),
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(40, 20, 40, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () async {
-                        setState(() => _loadingButton = true);
-                        try {
-                          if (passFieldController.text !=
-                              confirmPassFieldController.text) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  "Passwords don't match!",
-                                ),
-                              ),
-                            );
-                            return;
-                          }
-
-                          final user = await createAccountWithEmail(
-                            context,
-                            emailFieldController.text,
-                            passFieldController.text,
-                          );
-                          if (user == null) {
-                            return;
-                          }
-
-                          final usersCreateData = createUsersRecordData(
-                            email: '',
-                            specialty: '',
-                            phoneNumber: '',
-                            gender: '',
-                            displayName: '',
-                          );
-                          await UsersRecord.collection
-                              .doc(user.uid)
-                              .update(usersCreateData);
-
-                          await Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  NavBarPage(initialPage: 'Home_Page'),
-                            ),
-                            (r) => false,
-                          );
-                        } finally {
-                          setState(() => _loadingButton = false);
-                        }
-                      },
-                      text: 'Sign Up',
-                      options: FFButtonOptions(
-                        width: 130,
-                        height: 40,
-                        color: FlutterFlowTheme.customColor1,
-                        textStyle: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'Open Sans',
-                          color: Colors.white,
-                        ),
+                      enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Colors.transparent,
+                          color: Color(0x00000000),
                           width: 1,
                         ),
-                        borderRadius: 12,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      loading: _loadingButton,
-                    )
-                  ],
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      filled: true,
+                      fillColor: Color(0x41343333),
+                    ),
+                    style: FlutterFlowTheme.bodyText1.override(
+                      fontFamily: 'Open Sans',
+                      color: Color(0x80FFFFFF),
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
                 ),
-              )
-            ],
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(40, 15, 40, 0),
+                  child: TextFormField(
+                    controller: passFieldController,
+                    obscureText: !passFieldVisibility,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Open Sans',
+                        color: Color(0x80FFFFFF),
+                        fontWeight: FontWeight.normal,
+                      ),
+                      hintText: 'Please enter your password...',
+                      hintStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Open Sans',
+                        color: Color(0x80FFFFFF),
+                        fontWeight: FontWeight.normal,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      filled: true,
+                      fillColor: Color(0x41343333),
+                      suffixIcon: InkWell(
+                        onTap: () => setState(
+                          () => passFieldVisibility = !passFieldVisibility,
+                        ),
+                        child: Icon(
+                          passFieldVisibility
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                          color: Color(0xFF757575),
+                          size: 22,
+                        ),
+                      ),
+                    ),
+                    style: FlutterFlowTheme.bodyText1.override(
+                      fontFamily: 'Open Sans',
+                      color: Color(0x80FFFFFF),
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(40, 15, 40, 0),
+                  child: TextFormField(
+                    controller: confirmPassFieldController,
+                    obscureText: !confirmPassFieldVisibility,
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      labelStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Open Sans',
+                        color: Color(0x80FFFFFF),
+                        fontWeight: FontWeight.normal,
+                      ),
+                      hintText: 'Please confirm your password...',
+                      hintStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Open Sans',
+                        color: Color(0x80FFFFFF),
+                        fontWeight: FontWeight.normal,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      filled: true,
+                      fillColor: Color(0x41343333),
+                      suffixIcon: InkWell(
+                        onTap: () => setState(
+                          () => confirmPassFieldVisibility =
+                              !confirmPassFieldVisibility,
+                        ),
+                        child: Icon(
+                          confirmPassFieldVisibility
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                          color: Color(0xFF757575),
+                          size: 22,
+                        ),
+                      ),
+                    ),
+                    style: FlutterFlowTheme.bodyText1.override(
+                      fontFamily: 'Open Sans',
+                      color: Color(0x80FFFFFF),
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(40, 20, 40, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FFButtonWidget(
+                        onPressed: () async {
+                          setState(() => _loadingButton = true);
+                          try {
+                            if (passFieldController.text !=
+                                confirmPassFieldController.text) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    "Passwords don't match!",
+                                  ),
+                                ),
+                              );
+                              return;
+                            }
+
+                            final user = await createAccountWithEmail(
+                              context,
+                              emailFieldController.text,
+                              passFieldController.text,
+                            );
+                            if (user == null) {
+                              return;
+                            }
+
+                            final usersCreateData = createUsersRecordData(
+                              email: '',
+                              specialty: '',
+                              phoneNumber: '',
+                              gender: '',
+                              displayName: '',
+                            );
+                            await UsersRecord.collection
+                                .doc(user.uid)
+                                .update(usersCreateData);
+
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'Home_Page'),
+                              ),
+                              (r) => false,
+                            );
+                          } finally {
+                            setState(() => _loadingButton = false);
+                          }
+                        },
+                        text: 'Sign Up',
+                        options: FFButtonOptions(
+                          width: 130,
+                          height: 40,
+                          color: FlutterFlowTheme.customColor1,
+                          textStyle: FlutterFlowTheme.subtitle2.override(
+                            fontFamily: 'Open Sans',
+                            color: Colors.white,
+                          ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius: 12,
+                        ),
+                        loading: _loadingButton,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
