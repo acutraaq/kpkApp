@@ -4,8 +4,10 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../inventory_page/inventory_page_widget.dart';
+import '../manage_slot_page/manage_slot_page_widget.dart';
 import '../onboarding_page/onboarding_page_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdminPageWidget extends StatefulWidget {
@@ -121,101 +123,93 @@ class _AdminPageWidgetState extends State<AdminPageWidget> {
               Divider(
                 color: Color(0x65FFFFFF),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                child: InkWell(
-                  onTap: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AddDoctorPageWidget(),
-                      ),
-                    );
-                  },
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'Add Doctor',
-                        style: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'Open Sans',
-                          color: FlutterFlowTheme.tertiaryColor,
-                          fontSize: 20,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(140, 0, 0, 0),
-                        child: Icon(
-                          Icons.person_add,
-                          color: FlutterFlowTheme.tertiaryColor,
-                          size: 24,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                child: InkWell(
-                  onTap: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InventoryPageWidget(),
-                      ),
-                    );
-                  },
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'Inventory',
-                        style: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'Open Sans',
-                          color: FlutterFlowTheme.tertiaryColor,
-                          fontSize: 20,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(160, 0, 0, 0),
-                        child: Icon(
-                          Icons.inventory,
-                          color: FlutterFlowTheme.tertiaryColor,
-                          size: 24,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      'Manage Slot',
-                      style: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Open Sans',
-                        color: FlutterFlowTheme.tertiaryColor,
-                        fontSize: 20,
-                      ),
+              InkWell(
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => InventoryPageWidget(),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(132, 0, 0, 0),
-                      child: Icon(
-                        Icons.access_time,
-                        color: FlutterFlowTheme.tertiaryColor,
-                        size: 24,
-                      ),
-                    )
-                  ],
+                  );
+                },
+                child: ListTile(
+                  title: Text(
+                    'Inventory Management',
+                    style: FlutterFlowTheme.title3.override(
+                      fontFamily: 'Open Sans',
+                      color: FlutterFlowTheme.tertiaryColor,
+                    ),
+                  ),
+                  trailing: Icon(
+                    Icons.inventory,
+                    color: FlutterFlowTheme.tertiaryColor,
+                    size: 20,
+                  ),
+                  tileColor: Color(0xFFF5F5F5),
+                  dense: false,
                 ),
               ),
-              Divider()
+              Divider(
+                color: Color(0x65FFFFFF),
+              ),
+              InkWell(
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ManageSlotPageWidget(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Text(
+                    'Manage Slot',
+                    style: FlutterFlowTheme.title3.override(
+                      fontFamily: 'Open Sans',
+                      color: FlutterFlowTheme.tertiaryColor,
+                    ),
+                  ),
+                  trailing: FaIcon(
+                    FontAwesomeIcons.calendarAlt,
+                    color: FlutterFlowTheme.tertiaryColor,
+                    size: 20,
+                  ),
+                  tileColor: Color(0xFFF5F5F5),
+                  dense: false,
+                ),
+              ),
+              Divider(
+                color: Color(0x65FFFFFF),
+              ),
+              InkWell(
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddDoctorPageWidget(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Text(
+                    'Add New Doctor',
+                    style: FlutterFlowTheme.title3.override(
+                      fontFamily: 'Open Sans',
+                      color: FlutterFlowTheme.tertiaryColor,
+                    ),
+                  ),
+                  trailing: Icon(
+                    Icons.person_add_alt_1,
+                    color: FlutterFlowTheme.tertiaryColor,
+                    size: 20,
+                  ),
+                  tileColor: Color(0xFFF5F5F5),
+                  dense: false,
+                ),
+              ),
+              Divider(
+                color: Color(0x65FFFFFF),
+              )
             ],
           ),
         ),

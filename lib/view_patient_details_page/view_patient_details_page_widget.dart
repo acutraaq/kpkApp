@@ -356,6 +356,7 @@ class _ViewPatientDetailsPageWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       AutoSizeText(
                         viewPatientDetailsPageUsersRecord.address,

@@ -26,13 +26,7 @@ abstract class InventoryRecord
   String get photoUrl;
 
   @nullable
-  String get itemID;
-
-  @nullable
   String get stock;
-
-  @nullable
-  String get doses;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
@@ -42,9 +36,7 @@ abstract class InventoryRecord
     ..itemName = ''
     ..itemDetails = ''
     ..photoUrl = ''
-    ..itemID = ''
-    ..stock = ''
-    ..doses = '';
+    ..stock = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('inventory');
@@ -68,9 +60,7 @@ Map<String, dynamic> createInventoryRecordData({
   String itemDetails,
   DateTime createdTime,
   String photoUrl,
-  String itemID,
   String stock,
-  String doses,
 }) =>
     serializers.toFirestore(
         InventoryRecord.serializer,
@@ -79,6 +69,4 @@ Map<String, dynamic> createInventoryRecordData({
           ..itemDetails = itemDetails
           ..createdTime = createdTime
           ..photoUrl = photoUrl
-          ..itemID = itemID
-          ..stock = stock
-          ..doses = doses));
+          ..stock = stock));

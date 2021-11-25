@@ -124,7 +124,7 @@ class _DocEditProfilePageWidgetState extends State<DocEditProfilePageWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Image.asset(
-                          'assets/images/Asset_1.png',
+                          'assets/images/Asset_2.png',
                         ),
                       ),
                     );

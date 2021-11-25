@@ -1,8 +1,10 @@
+import '../about_us_page/about_us_page_widget.dart';
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../onboarding_page/onboarding_page_widget.dart';
+import '../req_m_c_page/req_m_c_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -133,40 +135,60 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 endIndent: 2,
                 color: Color(0x4BFFFFFF),
               ),
-              ListTile(
-                title: Text(
-                  'Request MC',
-                  style: FlutterFlowTheme.title3.override(
-                    fontFamily: 'Open Sans',
-                    color: FlutterFlowTheme.tertiaryColor,
+              InkWell(
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ReqMCPageWidget(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Text(
+                    'Request MC',
+                    style: FlutterFlowTheme.title3.override(
+                      fontFamily: 'Open Sans',
+                      color: FlutterFlowTheme.tertiaryColor,
+                    ),
                   ),
+                  trailing: Icon(
+                    Icons.assignment_outlined,
+                    color: FlutterFlowTheme.tertiaryColor,
+                    size: 20,
+                  ),
+                  tileColor: Color(0xFFF5F5F5),
+                  dense: false,
                 ),
-                trailing: Icon(
-                  Icons.assignment_outlined,
-                  color: FlutterFlowTheme.tertiaryColor,
-                  size: 20,
-                ),
-                tileColor: Color(0xFFF5F5F5),
-                dense: false,
               ),
               Divider(
                 color: Color(0x4BFFFFFF),
               ),
-              ListTile(
-                title: Text(
-                  'About Us',
-                  style: FlutterFlowTheme.title3.override(
-                    fontFamily: 'Open Sans',
-                    color: FlutterFlowTheme.tertiaryColor,
+              InkWell(
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AboutUsPageWidget(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Text(
+                    'About Us',
+                    style: FlutterFlowTheme.title3.override(
+                      fontFamily: 'Open Sans',
+                      color: FlutterFlowTheme.tertiaryColor,
+                    ),
                   ),
+                  trailing: Icon(
+                    Icons.info_outlined,
+                    color: FlutterFlowTheme.tertiaryColor,
+                    size: 20,
+                  ),
+                  tileColor: Color(0xFFF5F5F5),
+                  dense: false,
                 ),
-                trailing: Icon(
-                  Icons.info_outlined,
-                  color: FlutterFlowTheme.tertiaryColor,
-                  size: 20,
-                ),
-                tileColor: Color(0xFFF5F5F5),
-                dense: false,
               ),
               Divider(
                 color: Color(0x4BFFFFFF),
@@ -203,6 +225,28 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               )
             ],
           ),
+        ),
+      ),
+      body: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'UNDER DEVELOPMENT',
+                  style: FlutterFlowTheme.title1.override(
+                    fontFamily: 'Open Sans',
+                    color: FlutterFlowTheme.customColor1,
+                    fontSize: 20,
+                  ),
+                )
+              ],
+            )
+          ],
         ),
       ),
     );

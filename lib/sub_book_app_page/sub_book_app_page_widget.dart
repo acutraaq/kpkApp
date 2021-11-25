@@ -149,8 +149,8 @@ class _SubBookAppPageWidgetState extends State<SubBookAppPageWidget> {
                                                     decoration: BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
-                                                    child: Image.network(
-                                                      'https://picsum.photos/seed/697/600',
+                                                    child: Image.asset(
+                                                      'assets/images/Asset_2.png',
                                                     ),
                                                   )
                                                 ],

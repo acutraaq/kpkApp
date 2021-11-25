@@ -1,9 +1,11 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/upload_media.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,6 +23,7 @@ class ItemDetailsPageWidget extends StatefulWidget {
 }
 
 class _ItemDetailsPageWidgetState extends State<ItemDetailsPageWidget> {
+  String uploadedFileUrl = '';
   TextEditingController textController;
   bool _loadingButton = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -99,11 +102,39 @@ class _ItemDetailsPageWidgetState extends State<ItemDetailsPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          'assets/images/panadol-actifast-20s-1.jpg',
-                          width: MediaQuery.of(context).size.width,
-                          height: 240,
-                          fit: BoxFit.cover,
+                        InkWell(
+                          onTap: () async {
+                            final selectedMedia =
+                                await selectMediaWithSourceBottomSheet(
+                              context: context,
+                              allowPhoto: true,
+                            );
+                            if (selectedMedia != null &&
+                                validateFileFormat(
+                                    selectedMedia.storagePath, context)) {
+                              showUploadMessage(context, 'Uploading file...',
+                                  showLoading: true);
+                              final downloadUrl = await uploadData(
+                                  selectedMedia.storagePath,
+                                  selectedMedia.bytes);
+                              ScaffoldMessenger.of(context)
+                                  .hideCurrentSnackBar();
+                              if (downloadUrl != null) {
+                                setState(() => uploadedFileUrl = downloadUrl);
+                                showUploadMessage(context, 'Success!');
+                              } else {
+                                showUploadMessage(
+                                    context, 'Failed to upload media');
+                                return;
+                              }
+                            }
+                          },
+                          child: Image.asset(
+                            'assets/images/medication-drugs-pills-pharmacy-drug-bottles-flat-illustration_102902-333.jpg',
+                            width: MediaQuery.of(context).size.width,
+                            height: 240,
+                            fit: BoxFit.cover,
+                          ),
                         )
                       ],
                     ),
@@ -245,8 +276,9 @@ class _ItemDetailsPageWidgetState extends State<ItemDetailsPageWidget> {
                                 final inventoryUpdateData =
                                     createInventoryRecordData(
                                   stock: textController?.text ?? '',
+                                  photoUrl: uploadedFileUrl,
                                 );
-                                await widget.details
+                                await itemDetailsPageInventoryRecord.reference
                                     .update(inventoryUpdateData);
                               } finally {
                                 setState(() => _loadingButton = false);

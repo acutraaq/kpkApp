@@ -1,17 +1,18 @@
-import '../admin_page/admin_page_widget.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AddDoctorPageWidget extends StatefulWidget {
-  AddDoctorPageWidget({Key key}) : super(key: key);
+class AboutUsPageWidget extends StatefulWidget {
+  AboutUsPageWidget({Key key}) : super(key: key);
 
   @override
-  _AddDoctorPageWidgetState createState() => _AddDoctorPageWidgetState();
+  _AboutUsPageWidgetState createState() => _AboutUsPageWidgetState();
 }
 
-class _AddDoctorPageWidgetState extends State<AddDoctorPageWidget> {
+class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -19,37 +20,40 @@ class _AddDoctorPageWidgetState extends State<AddDoctorPageWidget> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.customColor2,
+        backgroundColor: FlutterFlowTheme.customColor3,
         automaticallyImplyLeading: false,
-        leading: InkWell(
-          onTap: () async {
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.chevron_left,
+            color: FlutterFlowTheme.customColor1,
+            size: 24,
+          ),
+          onPressed: () async {
             await Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => AdminPageWidget(),
+                builder: (context) => NavBarPage(initialPage: 'Home_Page'),
               ),
             );
           },
-          child: Icon(
-            Icons.chevron_left,
-            color: FlutterFlowTheme.tertiaryColor,
-            size: 24,
-          ),
         ),
         title: Text(
-          'Add Doctor',
+          'About Us',
           style: FlutterFlowTheme.title1.override(
             fontFamily: 'Open Sans',
-            color: FlutterFlowTheme.tertiaryColor,
+            color: FlutterFlowTheme.customColor1,
             fontSize: 20,
-            fontWeight: FontWeight.bold,
           ),
         ),
         actions: [],
         centerTitle: true,
         elevation: 0,
       ),
-      backgroundColor: FlutterFlowTheme.customColor1,
+      backgroundColor: FlutterFlowTheme.customColor3,
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -63,7 +67,8 @@ class _AddDoctorPageWidgetState extends State<AddDoctorPageWidget> {
                   'UNDER DEVELOPMENT',
                   style: FlutterFlowTheme.title1.override(
                     fontFamily: 'Open Sans',
-                    color: FlutterFlowTheme.tertiaryColor,
+                    color: FlutterFlowTheme.customColor1,
+                    fontSize: 20,
                   ),
                 )
               ],
